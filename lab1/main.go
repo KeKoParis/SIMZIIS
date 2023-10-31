@@ -44,7 +44,7 @@ func bruteForce(alphabet string, password string, size int, currPassword *string
 func main() {
 
 	var alphabet string
-	alphabet = "абвгдеёжзийклмнопрстуфхцшщъыьэюя0123456789"
+	alphabet = "абвгдеёжзийклмнопрстуфхцшщъыьэюя"
 
 	var length int
 
@@ -55,7 +55,7 @@ func main() {
 	}
 
 	password := generatePassword(alphabet, length)
-	
+
 	fmt.Println("Password:", password)
 
 	var currPassword string
@@ -65,7 +65,7 @@ func main() {
 	crackTime = time.Now().UnixMicro()
 
 	for {
-		bruteForce(alphabet, password, size, &currPassword)
+		bruteForce(alphabet, password, size, &currPassword) // currPassword is the result of hacking
 		if currPassword == password {
 			break
 		}
